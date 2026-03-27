@@ -14,11 +14,11 @@ import errorMiddleware from './middleware/error.middleware.js';
 const app = express();
 
 // middleware
+app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(cors({ origin: [process.env.FRONTEND_URL], credentials: true }));
 
 
 app.use('/api/v1/user', userRoutes); 
