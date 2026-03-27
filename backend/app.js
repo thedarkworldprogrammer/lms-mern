@@ -26,7 +26,9 @@ app.use('/api/v1/courses', courseRoutes);
 app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1/', miscellaneousRoutes);
  
-
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
 app.all('*', (req, res) => {
     res.status(404).send('OOPS!! 404 page not found');
 })
